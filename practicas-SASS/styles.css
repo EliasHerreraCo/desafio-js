@@ -1,1 +1,190 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #002244;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
+
+nav .logo {
+  width: 20vw;
+  margin: 1rem .5rem .5rem 1rem;
+}
+
+nav .logo:hover {
+  width: 27vw;
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+
+nav .encabezado {
+  font-size: 1rem;
+  margin: .5rem 0 .5rem 1rem;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+main {
+  margin-top: 35vh;
+}
+
+.title {
+  margin: 1rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top: .2rem solid #C60C30;
+  border-bottom: .2rem solid #C60C30;
+}
+
+.games {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.card {
+  color: #fff;
+  height: 60vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5rem;
+}
+
+button {
+  margin: 1rem 0;
+  padding: .5rem 5rem;
+  border-radius: 5px;
+}
+
+button:hover {
+  opacity: .85;
+  font-weight: 800;
+}
+
+.was {
+  background-color: #773141;
+  color: #ffb300;
+}
+
+.phi {
+  background-color: #004C54;
+  color: #A5ACAF;
+}
+
+.nyc {
+  background-color: #0B2265;
+  color: #fff;
+}
+
+.opponent {
+  margin-top: 1rem;
+  width: 20vw;
+}
+
+.washington {
+  background-color: #773141;
+}
+
+.eagles {
+  background-color: #004C54;
+}
+
+.giants {
+  background-color: #0B2265;
+}
+
+@media screen and (min-width: 633px) and (max-width: 910px) {
+  .encabezado {
+    font-size: 2rem;
+  }
+  .games {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .card {
+    width: 30vw;
+    height: 70vh;
+    font-size: 1rem;
+  }
+  .title {
+    visibility: visible;
+  }
+  .nav {
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 910px) {
+  .encabezado {
+    font-size: 3rem;
+  }
+  .title {
+    margin: 1rem;
+    padding: .5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-top: .4rem solid #C60C30;
+    border-bottom: .4rem solid #C60C30;
+  }
+  .games {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .card {
+    width: 30vw;
+    height: 90vh;
+  }
+  .title {
+    visibility: visible;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
