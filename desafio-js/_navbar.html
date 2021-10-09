@@ -37,17 +37,42 @@
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Create post</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <form action="">
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Add a cover image</label>
+            <input type="file" name="coverImg" class="input-form form-control-file" id="exampleFormControlFile1">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Titulo</label>
+            <textarea class="input-form form-control" name="title" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <select class="custom-select input-form" name="tags">
+            <option selected>Add up to 4 tags...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+          </select>
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Example file input</label>
+            <input type="file" class="form-control-file input-form" name="imageArticle" id="exampleFormControlFile1">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Contenido</label>
+            <textarea class="form-control input-form" name="contenido" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Post</button>
+        <button type="button" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-danger">Delete</button>
       </div>
     </div>
   </div>
