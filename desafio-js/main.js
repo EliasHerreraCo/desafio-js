@@ -23,4 +23,8 @@ $("#create-modal").click(()=> {
 
 let createPost = {}
 
-const obtenerCoverImage 
+// Para cargar los post
+
+// $(document).ready(()=>{
+//     loadPost();
+// })
