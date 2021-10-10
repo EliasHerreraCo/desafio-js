@@ -21,6 +21,18 @@ $("#create-modal").click(()=> {
 //     contenido: stringBody
 // }
 
-let createPost = {}
+//let createPost = {}
 
-const obtenerCoverImage 
+//const obtenerCoverImage 
+
+const inputsForma = () => {
+    let inputPost = {}
+    $('.input-form').each(function(index) {
+        let name = $(this).attr("name")
+        let value= $(this).val()
+        
+        inputPost = {...inputPost,[name]:value}
+        console.log(inputPost)
+    })
+    return inputPost
+}
