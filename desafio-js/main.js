@@ -73,12 +73,15 @@ const inputsForm = () => {
 }
 
 // Boton agregar post formulario <aún no funciona>
-$("#btn-add").click(()=>{
+$(".modal-footer .btn-add").click(()=>{
     console.log("Hi")
     alert("hi")
     let  input = inputsForm()
     createPost(input)
 })
+console.log(document.querySelector(".btn-add"))
+
+console.log(document.querySelector("#btn-add"))
 
 // Boton Editar post formulario <aún no funciona>
 $("#btn-add").click(()=>{
