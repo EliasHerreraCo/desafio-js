@@ -1,3 +1,4 @@
+
 // Crear post
 
 // 1. Seleccionar el boton *
@@ -8,9 +9,58 @@
 // 6. llamar el value de cada propiedad del objeto
 
 
-$("#create-modal").click(()=> {
-    console.log("Click desde Jquery")
-})
+const obtenerPost = () => {
+    let posts
+    $.ajax({
+        method: "GET",
+        url: "https://devto-desafiojs-default-rtdb.firebaseio.com/post.json",
+        success: response => { 
+            // console.log('response al terminar la peticion',response)
+            posts = response
+        },
+        error: error => {
+            console.log(error)
+        },
+        async: false
+    })
+    // console.log(products)
+    return posts
+}
+
+const createPost = (inputArray) => {
+    $.ajax({
+        method: "POST", 
+        url: "https://devto-desafiojs-default-rtdb.firebaseio.com/post.json",
+        data: JSON.stringify(inputArray),
+        success: (response)=> {
+            console.log("enviado")
+        },
+        error: error => {
+
+        }
+    })
+}
+
+
+
+
+// $("#create-modal").click(()=> {
+//     console.log("Click desde Jquery")
+// })
+
+const inputsForm = () => {
+    let inputPost = {}
+    $('#exampleModal .input-form').each(function(index) {
+    
+        let name = $(this).attr("name")
+        let value= $(this).val()
+        
+        inputPost = {...inputPost,[name]:value}
+        
+    })
+    return inputPost
+    
+}
 
 // Estructura del objeto en la base de datos
 // post 1 {
@@ -21,7 +71,7 @@ $("#create-modal").click(()=> {
 //     contenido: stringBody
 // }
 
-let createPost = {}
+// let createPost = {}
 
 // Para cargar los post
 
