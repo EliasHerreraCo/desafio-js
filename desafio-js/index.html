@@ -10,11 +10,227 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="menuContainer"></div>
+    <!-- Se añadio la navbar al index principal -->
+    <div class="menuContainer">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white px-0">
+            <div class="container-xl flex-nowrap">
+              <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <a class="navbar-brand px-2 bg-dark text-white text-uppercase mr-md-3" href="#">Dev</a>
+              <form class="form-inline position-relative w-100 d-none d-md-block">
+                <input class="form-control w-100 bg-light form-inline__input" type="text" placeholder="Search...">
+                <button class="btn position-absolute form-inline__btn-search" type="submit"><i class="bi bi-search"></i></button>
+              </form>
+              <div class="ml-auto mr-3 d-flex align-items-center">
+                <a href="#" class="text-dark p-2 mx-1 d-md-none"><i class="bi bi-search"></i></a>
+                <a id="create-modal" data-toggle="modal" data-target="#exampleModal" type="button" href="#" class="btn btn-dev mx-1 text-capitalize text-white font-weight-bold d-none d-md-block">Create post</a>
+                <a href="#" class="text-dark p-2 mx-1"><i class="bi bi-chat"></i></a>
+                <a href="#" class="text-dark p-2 mx-1"><i class="bi bi-bell"></i></a>
+                <div class="position-relative container-user">
+                  <button class="btn p-1 rounded-circle"><img class="border rounded-circle" style="width: 32px" src="https://res.cloudinary.com/practicaldev/image/fetch/s--IE_xy5Z2--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/687862/948f7eac-4fc8-40e6-8d62-9bc835b2a478.png" alt=""></button>
+                  <div class="card position-absolute w-100 invisible user-menu">
+                    <ul class="nav flex-column">
+                      <li class="nav-item"><a href="#" class="nav-link text-dark"><span class="font-weight-bold">UserNick</span><small class="d-block text-muted">@UserNick</small></a></li>
+                      <div class="dropdown-divider"></div>
+                      <li class="nav-item"><a href="#" class="nav-link text-dark">Dashboard</a></li>
+                      <li class="nav-item"><a href="#" class="nav-link text-dark">Create post</a></li>
+                      <li class="nav-item"><a href="#" class="nav-link text-dark">Reading list</a></li>
+                      <li class="nav-item"><a href="#" class="nav-link text-dark">Settings</a></li>
+                      <div class="dropdown-divider"></div>
+                      <li class="nav-item"><a href="#" class="nav-link text-dark text-capitalize">Sing out</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Create post</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form action="">
+                    <div class="form-group">
+                      <label for="exampleFormControlFile1">Add a cover image</label>
+                      <input type="text" name="coverImg" class="input-form form-control-file" id="exampleFormControlFile1">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlTextarea1">Titulo</label>
+                      <textarea class="input-form form-control" name="title" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <select class="custom-select " name="tags">
+                      <option selected>Add up to 4 tags...</option>
+                      <option value="Javascript">Javascript</option>
+                      <option value="Begineers">Begineers</option>
+                      <option value="webdev">webdev</option>
+                      <option value="productivity">productivity</option>
+                    </select>
+                    <div class="form-group">
+                      <label for="exampleFormControlFile1">Example file input</label>
+                      <input type="text" class="form-control-file input-form" name="imageArticle" id="exampleFormControlFile1">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlTextarea1">Contenido</label>
+                      <textarea class="form-control input-form" name="contenido" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" id="btn-add" class="btn btn-success btn-add" data-dismiss="modal">Post</button>
+                  <button type="button" id="btn-edit" class="btn btn-primary btn-edit" data-dismiss="modal">Edit</button>
+                  <button type="button" id="btn-delete" class="btn btn-danger btn-delete" data-dismiss="modal">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
     <main class="container">
         <div class="row">
             <div class="aside-left_container d-none d-lg-block col-lg-2"></div>
-            <div class="articles_container col col-lg-7"></div>
+            <!-- Tambien se añadio el articles dentro del body al index principal -->
+            <div class="articles_container col col-lg-7">
+                <article class="">
+                    <div class="articles-menu container d-flex justify-content-between mb-1 p-0">
+                          <h5 class="articles-menu_tittle align-self-center">Posts</h5>
+                          <div class="articles-posts_menu container d-none d-md-flex d-md-block justify-content-end justify mb-1 p-0">
+                            <a href="" class="mr-3">Feed</a>
+                            <a href="" class="mr-3">Week</a>
+                            <a href="" class="mr-3">Month</a>
+                            <a href="" class="mr-3">Year</a>
+                            <a href="" class="mr-3">Infinity</a>
+                            <a href="">Latest</a>
+                          </div>
+                        <select class="articles_select d-md-none">
+                          <option value="">Feed</option>
+                          <option value="">Week</option>
+                          <option value="">Month</option>
+                          <option value="">Year</option>
+                          <option value="">Infinity</option>
+                          <option value="">Latest</option>
+                        </select>
+                      </div>
+                      <!-- first card -->
+                    <a class="text-dark" href="./posts.html">
+                      <div class="first-card card mb-2">
+                
+                          <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--b2iYR02L--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/u7qe2obx17jizi6gi7qm.jpeg" class="card-img-top img-fluid" alt="...">
+                          <div class="card-body p-2 ml-1 mt-1">
+                              <div class="articles-author_container container-fluid d-flex mb-3">
+                                <div class="row">
+                                  <img class="article_logo rounded-circle align-self-center" src="./images/84e49851-d0da-4b98-9483-bb157f9e531f.jpeg" alt="">
+                                  <div class="col p-0 ml-2">
+                                    <h6 class="m-0">Tapajyoti Bose</h6>
+                                    <p class="m-0">Aug 22 (9 hours ago)</p>
+                                  </div>
+                                </div>
+                              </div>
+                            <h5 class="card-title">Day 8 : Learning JS fundamentals, Part -3</h5>
+                            <div class="container tags card-text d-flex p-0 mb-3">
+                                <div class="row">
+                                  <a class="col" href=""><small class="text-muted">#javascript</small></a>
+                                  <a class="col" href=""><small class="text-muted">#begginers</small></a>
+                                  <a class="col" href=""><small class="text-muted">#webdev</small></a>
+                                  <a class="col" href=""><small class="text-muted">#100daysofcode</small></a>
+                                </div>
+                            </div>
+                            <div class="articles-reactions container-fluid">
+                              <div class="row">
+                                  <div class="col p-0">
+                                      <a href=""><img src="./svg-images/Reactions.svg" alt=""><span class="text-muted">11</span><span class="text-muted d-none d-md-inline"> reactions</span></a>
+                                      <a href=""><img src="./svg-images/Comments.svg" alt=""><span class="text-muted">10</span><span class="text-muted d-none d-md-inline"> comments</span></a>
+                                  </div>
+                                  <div class="col p-0 d-flex justify-content-end">
+                                      <small class="text-muted align-self-center">1 min read</small>
+                                      <button type="button" class="btn btn-secondary btn-sm ml-1">Save</button>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </a>
+                <!--       end of first card -->
+                <!--       second card -->
+                      <div class="second-card card mb-2">
+                      <div class="card-body p-2 ml-1 mt-1">
+                            <div class="articles-author_container container-fluid d-flex mb-3">
+                              <div class="row">
+                                <img class="article_logo rounded-circle align-self-center" src="./images/da7a617c-9287-40bc-b4d6-cf99d762bedf.jpeg" alt="">
+                                <div class="col p-0 ml-2">
+                                  <h6 class="m-0">Mwenda Harun Mbaabu</h6>
+                                  <p class="m-0">Aug 21 (1 day ago)</p>
+                                </div>
+                              </div>
+                            </div>
+                          <h5 class="card-title">Introduction to DevOps and the top 10 tools used in DevOps Methodology.</h5>
+                          <div class="container tags card-text d-flex p-0 mb-3">
+                              <div class="row">
+                                <a class="col" href=""><small class="text-muted">#devops</small></a>
+                                <a class="col" href=""><small class="text-muted">#python</small></a>
+                                <a class="col" href=""><small class="text-muted">#programming</small></a>
+                                <a class="col" href=""><small class="text-muted">#datascience</small></a>
+                              </div>
+                          </div>
+                          <div class="container-fluid">
+                            <div class="row">
+                                <div class="articles-reactions col p-0">
+                                  <a href=""><img src="./svg-images/Reactions.svg" alt=""><span class="text-muted">125</span><span class="text-muted d-none d-md-inline"> reactions</span></a>
+                                  <a href=""><img src="./svg-images/Comments.svg" alt=""><span class="text-muted">8</span><span class="text-muted d-none d-md-inline"> comments</span></a>
+                                </div>
+                                <div class="col p-0 d-flex justify-content-end">
+                                    <small class="text-muted align-self-center">4 min read</small>
+                                    <button type="button" class="btn btn-secondary btn-sm ml-1">Save</button>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                <!--       end of second card -->
+                <!-- third card -->
+                <div class="third-card card mb-2">
+                  <div class="card-body p-2 ml-1 mt-1">
+                        <div class="articles-author_container container-fluid d-flex mb-3">
+                          <div class="row">
+                            <img class="article_logo rounded-circle align-self-center" src="./images/franciscoMendes.webp" alt="">
+                            <div class="col p-0 ml-2">
+                              <h6 class="m-0">Francisco Mendes</h6>
+                              <p class="m-0">Aug 21 (1 day ago)</p>
+                            </div>
+                          </div>
+                        </div>
+                      <h5 class="card-title">How to Create a Modal in React</h5>
+                      <div class="container tags card-text d-flex p-0 mb-3">
+                          <div class="row">
+                            <a class="col" href=""><small class="text-muted">#react</small></a>
+                            <a class="col" href=""><small class="text-muted">#beginners</small></a>
+                            <a class="col" href=""><small class="text-muted">#javascript</small></a>
+                            <a class="col" href=""><small class="text-muted">#node</small></a>
+                          </div>
+                      </div>
+                      <div class="container-fluid">
+                        <div class="row">
+                            <div class="articles-reactions col p-0">
+                              <a href=""><img src="./svg-images/Reactions.svg" alt=""><span class="text-muted">160</span><span class="text-muted d-none d-md-inline"> reactions</span></a>
+                              <a href=""><img src="./svg-images/Comments.svg" alt=""><span class="text-muted">9</span><span class="text-muted d-none d-md-inline"> comments</span></a>
+                            </div>
+                            <div class="col p-0 d-flex justify-content-end">
+                                <small class="text-muted align-self-center">6 min read</small>
+                                <button type="button" class="btn btn-secondary btn-sm ml-1">Save</button>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <!--   end of third card -->
+                </article>
+            </div>
             <div class="aside-right_container d-none  d-lg-block col-lg-3"></div>
         </div>
     </main>
@@ -25,10 +241,10 @@
     <script src="main.js"></script>
     <script>
         $(document).ready(function () {
-        $('.menuContainer').load('./_navbar.html');
+        // $('.menuContainer').load('./_navbar.html');
         $('.aside-left_container').load('./_aside-left.html');
         $('.aside-right_container').load('./_aside-right.html');
-        $('.articles_container').load('./_articles.html');
+        // $('.articles_container').load('./_articles.html');
         $('.footer_container').load('./_footer.html');
         });
     </script>
