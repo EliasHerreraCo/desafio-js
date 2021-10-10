@@ -43,6 +43,16 @@ const createPost = (inputArray) => {
 
 
 
+const post1 = {
+        coverImg:"https://res.cloudinary.com/practicaldev/image/fetch/s--wM5Z_Wpr--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ffkow5o41tepbdl1tw2t.png",
+        title: "Split Cards Effect",
+        tags: ["Javascript"  , "Begineers", "webdev", "productivity"],
+        imageArticle: "https://res.cloudinary.com/practicaldev/image/fetch/s--wM5Z_Wpr--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ffkow5o41tepbdl1tw2t.png", 
+        contenido: "so in this post i wont write much but will link a video where i have shown and explained every step :) and made it easier so you can understand "
+    }
+    
+
+
 
 // $("#create-modal").click(()=> {
 //     console.log("Click desde Jquery")
@@ -62,14 +72,28 @@ const inputsForm = () => {
     
 }
 
-// Estructura del objeto en la base de datos
-// post 1 {
-//     coverImg: file,
-//     title: string,
-//     tags: [tag1, tag2, tag3, tag4],
-//     imageArticle: [url1 o img1...], 
-//     contenido: stringBody
-// }
+// Boton agregar post formulario <aún no funciona>
+$("#btn-add").click(()=>{
+    console.log("Hi")
+    alert("hi")
+    let  input = inputsForm()
+    createPost(input)
+})
+
+// Boton Editar post formulario <aún no funciona>
+$("#btn-add").click(()=>{
+    console.log("Hi")
+    alert("hi")
+    
+})
+// Boton Eliminar post formulario <aún no funciona>
+
+$("#btn-add").click(()=>{
+    console.log("Hi")
+    alert("hi")
+    
+})
+
 
 // let createPost = {}
 

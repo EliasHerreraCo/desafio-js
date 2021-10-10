@@ -46,7 +46,7 @@
         <form action="">
           <div class="form-group">
             <label for="exampleFormControlFile1">Add a cover image</label>
-            <input type="file" name="coverImg" class="input-form form-control-file" id="exampleFormControlFile1">
+            <input type="text" name="coverImg" class="input-form form-control-file" id="exampleFormControlFile1">
           </div>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Titulo</label>
@@ -54,14 +54,14 @@
           </div>
           <select class="custom-select input-form" name="tags">
             <option selected>Add up to 4 tags...</option>
-            <option>One</option>
-            <option">Two</option>
-            <option >Three</option>
-            <option>Four</option>
+            <option value="Javascript">Javascript</option>
+            <option value="Begineers">Begineers</option>
+            <option value="webdev">webdev</option>
+            <option value="productivity">productivity</option>
           </select>
           <div class="form-group">
             <label for="exampleFormControlFile1">Example file input</label>
-            <input type="file" class="form-control-file input-form" name="imageArticle" id="exampleFormControlFile1">
+            <input type="text" class="form-control-file input-form" name="imageArticle" id="exampleFormControlFile1">
           </div>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Contenido</label>
@@ -70,9 +70,9 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">Post</button>
-        <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" id="btn-add" class="btn btn-success" data-dismiss="modal">Post</button>
+        <button type="button" id="btn-edit" class="btn btn-primary" data-dismiss="modal">Edit</button>
+        <button type="button" id="btn-delete" class="btn btn-danger" data-dismiss="modal">Delete</button>
       </div>
     </div>
   </div>
