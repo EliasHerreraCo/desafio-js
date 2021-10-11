@@ -79,6 +79,9 @@ $(".modal-footer #btn-add").click(()=>{
     let  input = inputsForm()
     createPost(input)
     // Crear funcion para mostrar post
+    // llamar funcion que construya las cards
+    pintarTituloCards()
+    pintarImagenCards()
 })
 
 object.addEventListener("click", myScript);
@@ -133,9 +136,45 @@ const inputsForma = () => {
 // 3. Crear una funcion que manipule el objeto y cree los elementos del post en HTML
 // 4. Añadir estilos css
 
-const pintarObjetoBaseDatos = () => {
-    let arrayBaseDatos = Object.values(obtenerPost ()); 
-    
-}
 
-let funcionPintar = pintarObjetoBaseDatos()
+    function pintarTituloCards() {
+
+    let arrayBaseDatos = Object.values(obtenerPost())    
+    let insertandoEnHtml = document.querySelector(".tituloCardBaseDatos")
+
+    arrayBaseDatos.forEach((elemento, index) => {
+        let cardTitle = document.createElement("h5")
+        cardTitle.textContent = arrayBaseDatos[index].title
+        console.log(cardTitle);
+        // let tituloText = document.create (titulo)
+        // cardTitle.appendChild(tituloText)
+        insertandoEnHtml.appendChild(cardTitle)
+    })
+    // document.body.appendChild(insertandoEnHtml)
+}    
+
+    function pintarImagenCards() {
+
+    let arrayBaseDatos = Object.values(obtenerPost())    
+    let insertandoImgEnHtml = document.querySelector(".imagenCardBaseDatos")
+
+    arrayBaseDatos.forEach((elemento, index) => {
+        let cardImg = document.createElement("img")
+        cardImg.setAttribute("src",  arrayBaseDatos[index].coverImg)
+        console.log(cardImg);
+        // let tituloText = document.create (titulo)
+        // cardTitle.appendChild(tituloText)
+        insertandoImgEnHtml.appendChild(cardImg)
+    })
+    // document.body.appendChild(insertandoEnHtml)
+}    
+
+
+
+// Elementos de cards que se deben crear por cada article
+// - Avatar con imagen, nombre y fecha
+// - Titulo
+// - tags
+// - Reactions y comments 
+// - Editar y eliminar botones
+
