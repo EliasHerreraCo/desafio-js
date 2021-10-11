@@ -80,8 +80,7 @@ $(".modal-footer #btn-add").click(()=>{
     createPost(input)
     // Crear funcion para mostrar post
     // llamar funcion que construya las cards
-    pintarTituloCards()
-    pintarImagenCards()
+    pintarCards()
 })
 
 object.addEventListener("click", myScript);
@@ -178,3 +177,44 @@ const inputsForma = () => {
 // - Reactions y comments 
 // - Editar y eliminar botones
 
+
+
+
+function pintarCards() {
+    let arrayBaseDatos = Object.values(obtenerPost())    
+    let insertandocards = document.querySelector("#add-cards")
+
+    arrayBaseDatos.forEach((elemento, index) => {
+
+        // Creando elementos de card
+        let cardDiv = document.createElement("div")
+        let cardImg = document.createElement("img")
+        let cardTitle = document.createElement("h5")
+        let cardDivPosteriorImg = document.createElement("div")
+
+
+        // Añadiendo contenido a elementos
+        cardTitle.textContent = arrayBaseDatos[index].title
+        // Añadiendo clases de elementos
+        cardDiv.className = "first-card card mb-2"
+        cardDivPosteriorImg.className = "card-body p-2 ml-1 mt-1"
+
+
+        // Añandiendo atributos
+        cardImg.setAttribute("src",  arrayBaseDatos[index].coverImg)
+
+
+        // Append elementos
+        cardDivPosteriorImg.appendChild(cardTitle)
+        cardDiv.appendChild(cardDivPosteriorImg)
+        cardDiv.appendChild(cardImg)
+        insertandocards.appendChild(cardDiv)
+
+
+
+
+
+
+    })
+    
+}   
