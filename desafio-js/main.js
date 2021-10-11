@@ -78,6 +78,7 @@ $(".modal-footer #btn-add").click(()=>{
     console.log("Hi")
     let  input = inputsForm()
     createPost(input)
+    // Crear funcion para mostrar post
 })
 
 object.addEventListener("click", myScript);
@@ -124,3 +125,17 @@ const inputsForma = () => {
 // $(document).ready(()=>{
 //     loadPost();
 // })
+
+
+// Pintar un objeto
+// 1. obtener el objeto de firebase con una funcion (Funcion obtener post)
+// 2. Definir el espacio donde va anidarse el post 
+// 3. Crear una funcion que manipule el objeto y cree los elementos del post en HTML
+// 4. Añadir estilos css
+
+const pintarObjetoBaseDatos = () => {
+    let arrayBaseDatos = Object.values(obtenerPost ()); 
+    console.log(arrayBaseDatos);
+}
+
+let funcionPintar = pintarObjetoBaseDatos()
