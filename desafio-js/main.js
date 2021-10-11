@@ -135,7 +135,7 @@ const inputsForma = () => {
 
 const pintarObjetoBaseDatos = () => {
     let arrayBaseDatos = Object.values(obtenerPost ()); 
-    console.log(arrayBaseDatos);
+    
 }
 
 let funcionPintar = pintarObjetoBaseDatos()
