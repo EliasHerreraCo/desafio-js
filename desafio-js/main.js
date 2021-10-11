@@ -169,6 +169,9 @@ const inputsForma = () => {
     // document.body.appendChild(insertandoEnHtml)
 }    
 
+function constructoraCards(){
+    
+}
 
 
 // Elementos de cards que se deben crear por cada article
