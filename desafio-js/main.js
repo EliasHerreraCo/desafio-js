@@ -170,40 +170,29 @@ const inputsForma = () => {
     // document.body.appendChild(insertandoEnHtml)
 }    
 
-    function pintarImagenCards() {
+//     function pintarImagenCards() {
 
-    let arrayBaseDatos = Object.values(obtenerPost())    
-    let insertandoImgEnHtml = document.querySelector(".imagenCardBaseDatos")
+//     let arrayBaseDatos = Object.values(obtenerPost())    
+//     let insertandoImgEnHtml = document.querySelector(".imagenCardBaseDatos")
 
-    arrayBaseDatos.forEach((elemento, index) => {
-        let cardImg = document.createElement("img")
-        cardImg.setAttribute("src",  arrayBaseDatos[index].coverImg)
-        console.log(cardImg);
-        // let tituloText = document.create (titulo)
-        // cardTitle.appendChild(tituloText)
-        insertandoImgEnHtml.appendChild(cardImg)
-    })
-    // document.body.appendChild(insertandoEnHtml)
-}    
+//     arrayBaseDatos.forEach((elemento, index) => {
+//         let cardTags = document.createElement("img")
 
-function constructoraCards(){
-    
-}
+//         cardTags.textContent = arrayBaseDatos[index].title
+//         console.log(cardImg);
+//         // let tituloText = document.create (titulo)
+//         // cardTitle.appendChild(tituloText)
+//         insertandoImgEnHtml.appendChild(cardImg)
+//     })
+//     // document.body.appendChild(insertandoEnHtml)
+// }    
 
-
-// Elementos de cards que se deben crear por cada article
-// - Avatar con imagen, nombre y fecha
-// - Titulo
-// - tags
-// - Reactions y comments 
-// - Editar y eliminar botones
-
-
+   
 
 
 function pintarCards() {
     let arrayBaseDatos = Object.values(obtenerPost()) 
-    console.log(arrayBaseDatos)   
+    
     let insertandocards = document.querySelector("#add-cards")
 
 
@@ -235,6 +224,9 @@ function pintarCards() {
         
         let cardDivTags = document.createElement("div")
         let cardDivInnerTags = document.createElement("div")
+        let cardtagElement = document.createElement("a")
+        let cardtagElementSmall = document.createElement("small")
+
 
 
         // Elementos Div Reactions
@@ -248,8 +240,9 @@ function pintarCards() {
         
 
         cardTitle.textContent = arrayBaseDatos[index].title //Titulo del post
+        cardtagElementSmall.textContent ="#"+ arrayBaseDatos[index].tags // Tags de post
         
-        
+        console.log()
         // Añadiendo clases de elementos
         cardDiv.className = "first-card card mb-2"
         cardDivPosteriorImg.className = "card-body p-2 ml-1 mt-1"
@@ -262,6 +255,8 @@ function pintarCards() {
         cardDivAuthorLastP.className = "m-0"
         cardDivTags.className="container tags card-text d-flex p-0 mb-3"
         cardDivInnerTags.className = "row"
+        cardtagElement.className ="col"
+        cardtagElementSmall.className ="text-muted"
         // Añandiendo atributos
         cardImg.setAttribute("src",  arrayBaseDatos[index].coverImg)
         cardDivAuthorImg.setAttribute("src", "./images/84e49851-d0da-4b98-9483-bb157f9e531f.jpeg")
@@ -277,21 +272,20 @@ function pintarCards() {
         cardDivAuthorInnerRow.appendChild(cardDivAuthorImg)
         cardDivAuthorInnerRow.appendChild(cardDivAuthorLast)
         cardDivAuthor.appendChild(cardDivAuthorInnerRow)
-        
-
-
         cardDiv.appendChild(cardDivAuthor)
+
         cardDiv.appendChild(cardDivPosteriorImg)
-
-
-        
+       //Appen Tittulo
         cardDivPosteriorImg.appendChild(cardTitle)
         
+        //Append seccion tags
+        cardtagElement.appendChild(cardtagElementSmall)
+        cardDivInnerTags.appendChild(cardtagElement)
+        cardDivTags.appendChild(cardDivInnerTags)
+        cardDiv.appendChild(cardDivTags)
         
-
-        console.log(cardDiv)
         insertandocards.appendChild(cardDiv)
-
+        console.log(cardDiv)
     })
     
 }   
