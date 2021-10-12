@@ -27,6 +27,22 @@ const obtenerPost = () => {
     return posts
 }
 
+const obtenerPostModificado = () => {
+    let keysBaseDatos = Object.keys(obtenerPost())    
+    let arrayBaseDatos = Object.values(obtenerPost())   
+    let postModificado = keysBaseDatos.forEach((id, index) => {
+        
+    })
+}
+
+
+function keys (){
+    keysBaseDatos.forEach((article, index) => {
+        article.Id = index;
+        console.log(obtenerPost());
+    })
+}
+
 const createPost = (inputArray) => {
     $.ajax({
         method: "POST", 
@@ -136,9 +152,13 @@ const inputsForma = () => {
 // 4. Añadir estilos css
 
 
+
+
     function pintarTituloCards() {
 
-    let arrayBaseDatos = Object.values(obtenerPost())    
+    let arrayBaseDatos = Object.values(obtenerPost())
+    
+    
     let insertandoEnHtml = document.querySelector(".tituloCardBaseDatos")
 
     arrayBaseDatos.forEach((elemento, index) => {
@@ -178,15 +198,6 @@ function pintarCards() {
     let insertandocards = document.querySelector("#add-cards")
 
 
-    // <div class="container tags card-text d-flex p-0 mb-3">
-    //                             <div class="row">
-    //                               <a class="col" href=""><small class="text-muted">#javascript</small></a>
-    //                               <a class="col" href=""><small class="text-muted">#begginers</small></a>
-    //                               <a class="col" href=""><small class="text-muted">#webdev</small></a>
-    //                               <a class="col" href=""><small class="text-muted">#100daysofcode</small></a>
-    //                             </div>
-    //                         </div>
-
     arrayBaseDatos.forEach((elemento, index) => {
 
         // Creando elementos de card
@@ -209,11 +220,35 @@ function pintarCards() {
         let cardtagElement = document.createElement("a")
         let cardtagElementSmall = document.createElement("small")
 
+       
 
-
-        // Elementos Div Reactions
+        // Elementos Div Reactions y botonos
 
         let cardDivReactions = document.createElement("div")
+        let cardDivInnerReactions = document.createElement("div")
+        let cardDivInnerLastSup = document.createElement("div")
+        let cardDivInnerLastInf = document.createElement("div")
+
+
+        // Elementos  commentrs
+        let cardDivInnerLastComment =  document.createElement("a")
+        
+        let cardDivInnerLastImgComment =  document.createElement("img")
+        let cardDivInnerLastSupSpanComment1 =  document.createElement("span")
+        let cardDivInnerLastSupSpanComment2=  document.createElement("span")
+
+        // Elementos  reactions
+        let cardDivInnerLastReactions =  document.createElement("a")
+        
+        let cardDivInnerLastImgReactions =  document.createElement("img")
+        let cardDivInnerLastSupSpanReactions1 =  document.createElement("span")
+        let cardDivInnerLastSupSpanReactions2=  document.createElement("span")
+
+
+        // Elementos botones
+        let cardButtonSmall = document.createElement("small")
+        let cardButtonEdit = document.createElement("button")
+        let cardButtonDelete = document.createElement("button")
 
 
         // Añadiendo contenido a elementos
@@ -224,6 +259,17 @@ function pintarCards() {
         cardTitle.textContent = arrayBaseDatos[index].title //Titulo del post
         cardtagElementSmall.textContent ="#"+ arrayBaseDatos[index].tags // Tags de post
         
+
+        cardDivInnerLastSupSpanReactions1.textContent ="125"
+        cardDivInnerLastSupSpanReactions2.textContent ="reactions"
+        cardDivInnerLastSupSpanComment1.textContent ="8"
+        cardDivInnerLastSupSpanComment2.textContent ="Comments"
+
+        cardButtonSmall.textContent = "4 min read"
+	    cardButtonEdit.textContent = "Edit"
+	    cardButtonDelete.textContent = "Delete"
+
+
         console.log()
         // Añadiendo clases de elementos
         cardDiv.className = "first-card card mb-2"
@@ -239,11 +285,34 @@ function pintarCards() {
         cardDivInnerTags.className = "row"
         cardtagElement.className ="col"
         cardtagElementSmall.className ="text-muted"
+
+        // Clases reactions
+        cardDivReactions.className ="container-fluid"
+        cardDivInnerReactions.className ="row"
+        cardDivInnerLastSup.className ="articles-reactions col p-0"
+        cardDivInnerLastInf.className ="col p-0 d-flex justify-content-end"
+        cardDivInnerLastSupSpanComment1.className ="text-muted"
+        cardDivInnerLastSupSpanComment2.className ="text-muted d-none d-md-inline"
+        cardDivInnerLastSupSpanReactions1.className ="text-muted"
+        cardDivInnerLastSupSpanReactions2.className ="text-muted d-none d-md-inline"
+        cardDivInnerLastInf.className = "col p-0 d-flex justify-content-end"
+
+        // Clases butones
+        cardDivInnerLastInf.className = "col p-0 d-flex justify-content-end"
+        cardButtonSmall.className ="text-muted align-self-center mr-2"
+        cardButtonEdit.className = "btn btn-warning btn-sm ml-1"
+        cardButtonDelete.className = "btn btn-danger btn-sm ml-1"
+
         // Añandiendo atributos
         cardImg.setAttribute("src",  arrayBaseDatos[index].coverImg)
         cardDivAuthorImg.setAttribute("src", "./images/84e49851-d0da-4b98-9483-bb157f9e531f.jpeg")
+        cardDivInnerLastImgReactions.setAttribute("src", "./svg-images/Reactions.svg")
+        cardDivInnerLastImgComment.setAttribute("src", "./svg-images/Comments.svg")
+        cardButtonEdit.setAttribute("type","button")
+        cardButtonDelete.setAttribute("type","button")
 
-        // Append elementos
+        // Append elementos----------------------------------------------------------
+        
         // Append seccion imagen
         cardDiv.appendChild(cardImg)
 
@@ -254,7 +323,8 @@ function pintarCards() {
         cardDivAuthorInnerRow.appendChild(cardDivAuthorImg)
         cardDivAuthorInnerRow.appendChild(cardDivAuthorLast)
         cardDivAuthor.appendChild(cardDivAuthorInnerRow)
-        cardDiv.appendChild(cardDivAuthor)
+        cardDivPosteriorImg.appendChild(cardDivAuthor)
+        
 
         cardDiv.appendChild(cardDivPosteriorImg)
        //Appen Tittulo
@@ -264,7 +334,43 @@ function pintarCards() {
         cardtagElement.appendChild(cardtagElementSmall)
         cardDivInnerTags.appendChild(cardtagElement)
         cardDivTags.appendChild(cardDivInnerTags)
-        cardDiv.appendChild(cardDivTags)
+        cardDivPosteriorImg.appendChild(cardDivTags)
+        
+
+
+
+        //Append seccion reactions & comments
+        cardDivInnerLastReactions.appendChild(cardDivInnerLastImgReactions) 
+        cardDivInnerLastReactions.appendChild(cardDivInnerLastSupSpanReactions1)
+        cardDivInnerLastComment.appendChild(cardDivInnerLastSupSpanReactions2)
+        cardDivInnerLastSup.appendChild(cardDivInnerLastReactions)
+        
+
+
+
+        cardDivInnerLastComment.appendChild(cardDivInnerLastImgComment) 
+        cardDivInnerLastComment.appendChild(cardDivInnerLastSupSpanComment1)
+        cardDivInnerLastComment.appendChild(cardDivInnerLastSupSpanComment2)
+        cardDivInnerLastSup.appendChild(cardDivInnerLastComment)
+        cardDivInnerReactions.appendChild(cardDivInnerLastSup)
+        cardDivReactions.appendChild(cardDivInnerReactions)
+        cardDivPosteriorImg.appendChild(cardDivReactions)
+        
+
+
+
+        // cardDivInnerLastReactions.appendChild() 
+
+
+        //Append seccion buttons
+        cardDivInnerLastInf.appendChild(cardButtonSmall)
+        cardDivInnerLastInf.appendChild(cardButtonEdit)
+        cardDivInnerLastInf.appendChild(cardButtonDelete)
+        cardDivInnerReactions.appendChild(cardDivInnerLastInf)
+
+
+
+
         
         insertandocards.appendChild(cardDiv)
         console.log(cardDiv)
