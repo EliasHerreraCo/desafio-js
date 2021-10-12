@@ -189,14 +189,14 @@ function pintarCards() {
     let insertandocards = document.querySelector("#add-cards")
 
 
-    <div class="container tags card-text d-flex p-0 mb-3">
-                                <div class="row">
-                                  <a class="col" href=""><small class="text-muted">#javascript</small></a>
-                                  <a class="col" href=""><small class="text-muted">#begginers</small></a>
-                                  <a class="col" href=""><small class="text-muted">#webdev</small></a>
-                                  <a class="col" href=""><small class="text-muted">#100daysofcode</small></a>
-                                </div>
-                            </div>
+    // <div class="container tags card-text d-flex p-0 mb-3">
+    //                             <div class="row">
+    //                               <a class="col" href=""><small class="text-muted">#javascript</small></a>
+    //                               <a class="col" href=""><small class="text-muted">#begginers</small></a>
+    //                               <a class="col" href=""><small class="text-muted">#webdev</small></a>
+    //                               <a class="col" href=""><small class="text-muted">#100daysofcode</small></a>
+    //                             </div>
+    //                         </div>
 
     arrayBaseDatos.forEach((elemento, index) => {
 
@@ -216,6 +216,8 @@ function pintarCards() {
         // Elementos tags
         
         let cardDivTags = document.createElement("div")
+        let cardDivInnerTags = document.createElement("div")
+
 
         // Elementos Div Reactions
 
@@ -227,7 +229,8 @@ function pintarCards() {
         cardDivAuthorLastP.textContent = "Aug 22 (9 hours ago)" //Fecha y hora del post
         
 
-        cardTitle.textContent = arrayBaseDatos[index].title
+        cardTitle.textContent = arrayBaseDatos[index].title //Titulo del post
+        
         
         // Añadiendo clases de elementos
         cardDiv.className = "first-card card mb-2"
@@ -240,7 +243,7 @@ function pintarCards() {
         cardDivAuthorLastH6.className ="m-0"
         cardDivAuthorLastP.className = "m-0"
         cardDivTags.className="container tags card-text d-flex p-0 mb-3"
-        
+        cardDivInnerTags.className = "row"
         // Añandiendo atributos
         cardImg.setAttribute("src",  arrayBaseDatos[index].coverImg)
         cardDivAuthorImg.setAttribute("src", "./images/84e49851-d0da-4b98-9483-bb157f9e531f.jpeg")
@@ -270,11 +273,6 @@ function pintarCards() {
 
         console.log(cardDiv)
         insertandocards.appendChild(cardDiv)
-
-
-
-
-
 
     })
     
