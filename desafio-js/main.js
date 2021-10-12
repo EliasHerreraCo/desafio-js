@@ -90,14 +90,7 @@ const inputsForm = () => {
 
 // Boton agregar post formulario <aún no funciona>
 
-$(".modal-footer #btn-add").click(()=>{
-    console.log("Hi")
-    let  input = inputsForm()
-    createPost(input)
-    // Crear funcion para mostrar post
-    // llamar funcion que construya las cards
-    pintarCards()
-})
+
 
 object.addEventListener("click", myScript);
 
@@ -377,3 +370,20 @@ function pintarCards() {
     })
     
 }   
+
+function borrarCards() {
+    let cardsPosition = document.getElementById("card-position")
+    let cards = document.getElementById("add-cards")
+    
+    cardsPosition.removeChild(cards)
+}    
+
+$(".modal-footer #btn-add").click(()=>{
+    console.log("Hi")
+    let  input = inputsForm()
+    createPost(input)
+    // Crear funcion para mostrar post
+    // llamar funcion que construya las cards
+    borrarCards()
+    pintarCards()
+})
