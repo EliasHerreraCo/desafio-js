@@ -222,7 +222,7 @@ function pintarCards() {
         
 
         cardTitle.textContent = arrayBaseDatos[index].title //Titulo del post
-        cardtagElementSmall.textContent = arrayBaseDatos[index].tags // Tags de post
+        cardtagElementSmall.textContent ="#"+ arrayBaseDatos[index].tags // Tags de post
         
         console.log()
         // Añadiendo clases de elementos
@@ -265,10 +265,9 @@ function pintarCards() {
         cardDivInnerTags.appendChild(cardtagElement)
         cardDivTags.appendChild(cardDivInnerTags)
         cardDiv.appendChild(cardDivTags)
-
+        
         insertandocards.appendChild(cardDiv)
-
+        console.log(cardDiv)
     })
     
 }   
-
