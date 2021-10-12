@@ -27,6 +27,22 @@ const obtenerPost = () => {
     return posts
 }
 
+const obtenerPostModificado = () => {
+    let keysBaseDatos = Object.keys(obtenerPost())    
+    let arrayBaseDatos = Object.values(obtenerPost())   
+    let postModificado = keysBaseDatos.forEach((id, index) => {
+        
+    })
+}
+
+
+function keys (){
+    keysBaseDatos.forEach((article, index) => {
+        article.Id = index;
+        console.log(obtenerPost());
+    })
+}
+
 const createPost = (inputArray) => {
     $.ajax({
         method: "POST", 
@@ -134,6 +150,8 @@ const inputsForma = () => {
 // 2. Definir el espacio donde va anidarse el post 
 // 3. Crear una funcion que manipule el objeto y cree los elementos del post en HTML
 // 4. Añadir estilos css
+
+
 
 
     function pintarTituloCards() {
