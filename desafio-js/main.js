@@ -184,8 +184,19 @@ function constructoraCards(){
 
 
 function pintarCards() {
-    let arrayBaseDatos = Object.values(obtenerPost())    
+    let arrayBaseDatos = Object.values(obtenerPost()) 
+    console.log(arrayBaseDatos)   
     let insertandocards = document.querySelector("#add-cards")
+
+
+    <div class="container tags card-text d-flex p-0 mb-3">
+                                <div class="row">
+                                  <a class="col" href=""><small class="text-muted">#javascript</small></a>
+                                  <a class="col" href=""><small class="text-muted">#begginers</small></a>
+                                  <a class="col" href=""><small class="text-muted">#webdev</small></a>
+                                  <a class="col" href=""><small class="text-muted">#100daysofcode</small></a>
+                                </div>
+                            </div>
 
     arrayBaseDatos.forEach((elemento, index) => {
 
@@ -194,23 +205,70 @@ function pintarCards() {
         let cardImg = document.createElement("img")
         let cardTitle = document.createElement("h5")
         let cardDivPosteriorImg = document.createElement("div")
+        // Elementos Div Author
+        let cardDivAuthor = document.createElement("div")
+        let cardDivAuthorInnerRow = document.createElement("div")
+        let cardDivAuthorImg = document.createElement("img")
+        let cardDivAuthorLast = document.createElement("div")
+        let cardDivAuthorLastH6 = document.createElement("h6")
+        let cardDivAuthorLastP = document.createElement("p")
+
+        // Elementos tags
+        
+        let cardDivTags = document.createElement("div")
+
+        // Elementos Div Reactions
+
+        let cardDivReactions = document.createElement("div")
 
 
         // Añadiendo contenido a elementos
+        cardDivAuthorLastH6.textContent = "Tapajyoti Bos" //Nombre el autor
+        cardDivAuthorLastP.textContent = "Aug 22 (9 hours ago)" //Fecha y hora del post
+        
+
         cardTitle.textContent = arrayBaseDatos[index].title
+        
         // Añadiendo clases de elementos
         cardDiv.className = "first-card card mb-2"
         cardDivPosteriorImg.className = "card-body p-2 ml-1 mt-1"
-
-
+        cardDivAuthor.className = "articles-author_container container-fluid d-flex mb-3"
+        cardDivAuthorInnerRow.className = "row"
+        cardDivAuthorImg.className = "article_logo rounded-circle align-self-center"
+        cardDivAuthorImg.className = "article_logo rounded-circle align-self-center"
+        cardDivAuthorLast.className ="col p-0 ml-2"
+        cardDivAuthorLastH6.className ="m-0"
+        cardDivAuthorLastP.className = "m-0"
+        cardDivTags.className="container tags card-text d-flex p-0 mb-3"
+        
         // Añandiendo atributos
         cardImg.setAttribute("src",  arrayBaseDatos[index].coverImg)
-
+        cardDivAuthorImg.setAttribute("src", "./images/84e49851-d0da-4b98-9483-bb157f9e531f.jpeg")
 
         // Append elementos
-        cardDivPosteriorImg.appendChild(cardTitle)
-        cardDiv.appendChild(cardDivPosteriorImg)
+        // Append seccion imagen
         cardDiv.appendChild(cardImg)
+
+
+        // Append seccion author
+        cardDivAuthorLast.appendChild(cardDivAuthorLastH6)
+        cardDivAuthorLast.appendChild(cardDivAuthorLastP)
+        cardDivAuthorInnerRow.appendChild(cardDivAuthorImg)
+        cardDivAuthorInnerRow.appendChild(cardDivAuthorLast)
+        cardDivAuthor.appendChild(cardDivAuthorInnerRow)
+        
+
+
+        cardDiv.appendChild(cardDivAuthor)
+        cardDiv.appendChild(cardDivPosteriorImg)
+
+
+        
+        cardDivPosteriorImg.appendChild(cardTitle)
+        
+        
+
+        console.log(cardDiv)
         insertandocards.appendChild(cardDiv)
 
 
