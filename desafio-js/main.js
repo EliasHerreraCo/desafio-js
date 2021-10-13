@@ -194,6 +194,7 @@ function pintarCards() {
         let cardImg = document.createElement("img")
         let cardTitle = document.createElement("h5")
         let cardDivPosteriorImg = document.createElement("div")
+
         // Elementos Div Author
         let cardDivAuthor = document.createElement("div")
         let cardDivAuthorInnerRow = document.createElement("div")
@@ -211,9 +212,6 @@ function pintarCards() {
 
 
 
-        // Elementos Div Reactions
-
-        let cardDivReactions = document.createElement("div")
 
 
         // Añadiendo contenido a elementos
@@ -226,7 +224,7 @@ function pintarCards() {
         
         console.log()
         // Añadiendo clases de elementos
-        cardDiv.className = "first-card card mb-2"
+        cardDiv.className = "card mb-2"
         cardDivPosteriorImg.className = "card-body p-2 ml-1 mt-1"
         cardDivAuthor.className = "articles-author_container container-fluid d-flex mb-3"
         cardDivAuthorInnerRow.className = "row"
@@ -235,7 +233,7 @@ function pintarCards() {
         cardDivAuthorLast.className ="col p-0 ml-2"
         cardDivAuthorLastH6.className ="m-0"
         cardDivAuthorLastP.className = "m-0"
-        cardDivTags.className="container tags card-text d-flex p-0 mb-3"
+        cardDivTags.className="container tags card-text d-flex p-0 mb-3 ml-3"
         cardDivInnerTags.className = "row"
         cardtagElement.className ="col"
         cardtagElementSmall.className ="text-muted"
@@ -264,7 +262,35 @@ function pintarCards() {
         cardtagElement.appendChild(cardtagElementSmall)
         cardDivInnerTags.appendChild(cardtagElement)
         cardDivTags.appendChild(cardDivInnerTags)
-        cardDiv.appendChild(cardDivTags)
+        cardDiv.appendChild(cardDivPosteriorImg)
+        cardDivPosteriorImg.appendChild(cardDivTags)
+
+                // Elementos Div Reactions
+
+                let cardDivReactions = document.createElement("div")
+                let cardRowReactions = document.createElement("div")
+                let cardCommentsReactions = document.createElement("div")
+                let cardButtonsReactions = document.createElement("div")
+                cardDivReactions.className = "articles-reactions container-fluid"
+                cardRowReactions.className = "row"
+                cardCommentsReactions.className = "col p-0"
+                cardButtonsReactions.className = "col p-0 ml-5 d-flex justify-content-end"
+                let cardMinReadElement = document.createElement("small")
+                let cardButtonEditElement = document.createElement("button")
+                let cardButtonDeleteElement = document.createElement("button")
+                cardMinReadElement.textContent ="1 min. read"
+                cardMinReadElement.className = "text-muted align-self-center mr-2"
+                cardButtonDeleteElement.textContent = "Delete"
+                cardButtonDeleteElement.className = "btn btn-danger btn-sm ml-1"
+                cardButtonEditElement.textContent = "Edit"
+                cardButtonEditElement.className = "btn btn-warning btn-sm ml-1"
+                cardButtonsReactions.appendChild(cardMinReadElement)
+                cardButtonsReactions.appendChild(cardButtonEditElement)
+                cardButtonsReactions.appendChild(cardButtonDeleteElement)
+                cardRowReactions.appendChild(cardButtonsReactions)
+                cardRowReactions.appendChild(cardCommentsReactions)
+                cardDivReactions.appendChild(cardRowReactions)
+                cardDivPosteriorImg.appendChild(cardDivReactions)
 
         insertandocards.appendChild(cardDiv)
 
