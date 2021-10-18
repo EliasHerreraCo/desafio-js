@@ -92,7 +92,7 @@ const inputsForm = () => {
 
 
 
-object.addEventListener("click", myScript);
+// object.addEventListener("click", myScript);
 
 
 console.log(document.querySelector(".btn-add"))
@@ -100,16 +100,16 @@ console.log(document.querySelector(".btn-add"))
 console.log(document.querySelector("#btn-add"))
 
 // Boton Editar post formulario <aún no funciona>
-$("#btn-add").click(()=>{
+$(".btn-edit-post").click(()=>{
     console.log("Hi")
     alert("hi")
     
 })
 // Boton Eliminar post formulario <aún no funciona>
 
-$("#btn-add").click(()=>{
-    console.log("Hi")
-    alert("hi")
+$(".btn-del-post").click((event)=>{
+    
+    console.log(event.target.dataset.keys)
     
 })
 
@@ -187,7 +187,7 @@ const inputsForma = () => {
 
 function pintarCards() {
     let arrayBaseDatos = Object.values(obtenerPost()) 
-    
+    let arrayKeys = Object.keys(obtenerPost()) 
     let insertandocards = document.querySelector("#add-cards")
 
 
@@ -295,8 +295,9 @@ function pintarCards() {
         // Clases butones
         cardDivInnerLastInf.className = "col p-0 d-flex justify-content-end"
         cardButtonSmall.className ="text-muted align-self-center mr-2"
-        cardButtonEdit.className = "btn btn-warning btn-sm ml-1"
-        cardButtonDelete.className = "btn btn-danger btn-sm ml-1"
+        cardButtonEdit.className = "btn btn-warning btn-sm ml-1 btn-edit-post"
+        cardButtonDelete.className = "btn btn-danger btn-sm ml-1 btn-del-post"
+
 
         // Añandiendo atributos
         cardImg.setAttribute("src",  arrayBaseDatos[index].coverImg)
@@ -304,7 +305,12 @@ function pintarCards() {
         cardDivInnerLastImgReactions.setAttribute("src", "./svg-images/Reactions.svg")
         cardDivInnerLastImgComment.setAttribute("src", "./svg-images/Comments.svg")
         cardButtonEdit.setAttribute("type","button")
+        cardButtonEdit.setAttribute("data-custom-key",arrayKeys[index])
         cardButtonDelete.setAttribute("type","button")
+        cardButtonDelete.setAttribute("data-custom-key",arrayKeys[index])
+
+
+
 
         // Append elementos----------------------------------------------------------
         
@@ -333,32 +339,39 @@ function pintarCards() {
         cardDivPosteriorImg.appendChild(cardDivTags)
 
                 // Elementos Div Reactions
+            
+            // Checar estos elementos parecen duplicados
 
-                let cardDivReactions = document.createElement("div")
-                let cardRowReactions = document.createElement("div")
-                let cardCommentsReactions = document.createElement("div")
-                let cardButtonsReactions = document.createElement("div")
-                cardDivReactions.className = "articles-reactions container-fluid"
-                cardRowReactions.className = "row"
-                cardCommentsReactions.className = "col p-0"
-                cardButtonsReactions.className = "col p-0 ml-5 d-flex justify-content-end"
-                let cardMinReadElement = document.createElement("small")
-                let cardButtonEditElement = document.createElement("button")
-                let cardButtonDeleteElement = document.createElement("button")
-                cardMinReadElement.textContent ="1 min. read"
-                cardMinReadElement.className = "text-muted align-self-center mr-2"
-                cardButtonDeleteElement.textContent = "Delete"
-                cardButtonDeleteElement.className = "btn btn-danger btn-sm ml-1"
-                cardButtonEditElement.textContent = "Edit"
-                cardButtonEditElement.className = "btn btn-warning btn-sm ml-1"
-                cardButtonsReactions.appendChild(cardMinReadElement)
-                cardButtonsReactions.appendChild(cardButtonEditElement)
-                cardButtonsReactions.appendChild(cardButtonDeleteElement)
-                cardRowReactions.appendChild(cardButtonsReactions)
-                cardRowReactions.appendChild(cardCommentsReactions)
-                cardDivReactions.appendChild(cardRowReactions)
-                cardDivPosteriorImg.appendChild(cardDivReactions)
-        cardDivPosteriorImg.appendChild(cardDivTags)
+
+                // let cardDivReactions = document.createElement("div")
+
+                // let cardRowReactions = document.createElement("div")
+                // let cardCommentsReactions = document.createElement("div")
+                // let cardButtonsReactions = document.createElement("div")
+                // cardDivReactions.className = "articles-reactions container-fluid"
+                // cardRowReactions.className = "row"
+                // cardCommentsReactions.className = "col p-0"
+                // cardButtonsReactions.className = "col p-0 ml-5 d-flex justify-content-end"
+                // let cardMinReadElement = document.createElement("small")
+
+                // // let cardButtonEditElement = document.createElement("button")
+                // // let cardButtonDeleteElement = document.createElement("button")
+
+
+                // cardMinReadElement.textContent ="1 min. read"
+                // cardMinReadElement.className = "text-muted align-self-center mr-2"
+                // // cardButtonDeleteElement.textContent = "Delete"
+                // cardButtonDeleteElement.className = "btn btn-danger btn-sm ml-1"
+                // cardButtonEditElement.textContent = "Edit"
+                // cardButtonEditElement.className = "btn btn-warning btn-sm ml-1"
+                // cardButtonsReactions.appendChild(cardMinReadElement)
+                // cardButtonsReactions.appendChild(cardButtonEditElement)
+                // cardButtonsReactions.appendChild(cardButtonDeleteElement)
+                // cardRowReactions.appendChild(cardButtonsReactions)
+                // cardRowReactions.appendChild(cardCommentsReactions)
+                // cardDivReactions.appendChild(cardRowReactions)
+                // cardDivPosteriorImg.appendChild(cardDivReactions)
+                // cardDivPosteriorImg.appendChild(cardDivTags)
         
 
 
@@ -418,3 +431,5 @@ $(".modal-footer #btn-add").click(()=>{
     borrarCards()
     pintarCards()
 })
+
+let arrayBaseDatos = Object.keys(obtenerPost()) 
